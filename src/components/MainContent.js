@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
-import MovieSlider from "./MovieSlider";
 import Loading from "./Loading";
+import MovieSlider from "./MovieSlider";
 import styles from "./MainContent.module.scss";
 
 const realSlides = [
-  { id: 1, imageUrl: "/images/img.webp" },
-  { id: 2, imageUrl: "/images/img2.jpeg" },
-  { id: 3, imageUrl: "/images/img3.jpeg" },
+  {
+    id: 1,
+    imageUrl: "/images/img.webp",
+    content: "Slide 1 contents",
+  },
+  { id: 2, imageUrl: "/images/img2.jpeg", content: "Slide 2 content" },
+  { id: 3, imageUrl: "/images/img3.jpeg", content: "Slide 3 content" },
 ];
 
 const MainContent = () => {

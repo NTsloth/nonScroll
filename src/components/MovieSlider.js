@@ -25,7 +25,7 @@ const MovieSlider = ({ slides }) => {
   };
 
   const handleScroll = (e) => {
-    if (Date.now() - lastScrollTime < 2000) {
+    if (Date.now() - lastScrollTime < 2500) {
       return;
     }
 
@@ -41,10 +41,11 @@ const MovieSlider = ({ slides }) => {
   return (
     <div
       className={styles.sliderContainer}
-      onWheel={(e) => {
-        e.preventDefault();
-        handleScroll(e);
-      }}
+      onWheel={handleScroll}
+      onTouchStart={(e) => e.preventDefault()}
+      onTouchMove={(e) => e.preventDefault()}
+      onTouchEnd={(e) => e.preventDefault()}
+      onTouchCancel={(e) => e.preventDefault()}
     >
       <Slider
         {...settings}
@@ -56,12 +57,14 @@ const MovieSlider = ({ slides }) => {
       >
         {slides.map((slide) => (
           <div key={slide.id}>
-            <img
-              src={slide.imageUrl}
-              alt={`Slide ${slide.id}`}
-              className={styles.slide}
-              draggable="false"
-            />
+            <div className={styles.slideContent}>
+              <img
+                src={slide.imageUrl}
+                alt={`Slide ${slide.id}`}
+                className={styles.slideImage}
+                draggable="false"
+              />
+            </div>
           </div>
         ))}
       </Slider>

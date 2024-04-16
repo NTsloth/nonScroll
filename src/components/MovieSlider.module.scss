@@ -8,9 +8,18 @@
   justify-content: center;
   align-items: center;
 }
+.slideContent {
+  width: 100wv;
+  height: 1000vh;
+  position: relative;
+}
 
-.slide {
+.slideImage {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
+  z-index: -111;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
