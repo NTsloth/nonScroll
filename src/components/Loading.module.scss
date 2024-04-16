@@ -1,0 +1,88 @@
+.loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: orbit 5s linear infinite;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #3498db;
+  animation: pulse 1.5s ease-in-out infinite alternate,
+    orbitCircle 5s linear infinite;
+}
+
+.circle1 {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle2 {
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.circle3 {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.circle4 {
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitCircle {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  20% {
+    transform: translate(30%, -50%) scale(1.5) rotate(90deg);
+    background-color: #e74c3c;
+  }
+  40% {
+    transform: translate(50%, 50%) scale(1) rotate(180deg);
+  }
+  60% {
+    transform: translate(-50%, 70%) scale(1.5) rotate(270deg);
+  }
+  80% {
+    transform: translate(-70%, -50%) scale(1) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    background-color: #3498db;
+  }
+}
+
+.loadingContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

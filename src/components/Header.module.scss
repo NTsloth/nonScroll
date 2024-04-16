@@ -1,0 +1,80 @@
+.burgerMenu {
+  position: fixed;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  right: 20px;
+  top: 20px;
+}
+.menuItem {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #f3dce3;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.menuListItem {
+  display: flex;
+  width: 7%;
+  align-items: center;
+  gap: 15px;
+}
+
+.burgerIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 50px;
+}
+
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuContent {
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: rgb(28, 27, 27);
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.closeButton {
+  z-index: 99999;
+  width: 100%;
+  height: 50px;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  fill: #f3dce3;
+}
