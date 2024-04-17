@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./MovieSlider.module.scss";
 
-const MovieSlider = ({ slides }) => {
+const MovieSlider = ({ slides, bannerContent, onSlideChange }) => {
   const sliderRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lastScrollTime, setLastScrollTime] = useState(0);
@@ -21,7 +21,10 @@ const MovieSlider = ({ slides }) => {
     touchMove: false,
     arrows: false,
     draggable: false,
-    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+    beforeChange: (oldIndex, newIndex) => {
+      setCurrentSlide(newIndex);
+      onSlideChange(newIndex);
+    },
   };
 
   const handleScroll = (e) => {
@@ -55,15 +58,27 @@ const MovieSlider = ({ slides }) => {
         fade={true}
         cssEase="linear"
       >
-        {slides.map((slide) => (
+        {slides.map((slide, index) => (
           <div key={slide.id}>
-            <div className={styles.slideContent}>
+            <div
+              className={`${styles.slideContent} ${
+                styles[`banner${index + 1}`]
+              }`}
+            >
               <img
                 src={slide.imageUrl}
                 alt={`Slide ${slide.id}`}
                 className={styles.slideImage}
                 draggable="false"
               />
+              <div className={styles.bannerContent}>
+                <h2>{bannerContent.title}</h2>
+                <p>{bannerContent.text}</p>
+                <p>{bannerContent.content}</p>
+                <a href={bannerContent.buttonLink}>
+                  {bannerContent.buttonLabel}
+                </a>
+              </div>
             </div>
           </div>
         ))}
