@@ -62,7 +62,8 @@ const MovieSlider = ({ slides, bannerContent, onSlideChange }) => {
           <div key={slide.id}>
             <div
               className={`${styles.slideContent} ${
-                styles[`banner${index + 1}`]
+                // styles[`banner${index + 1}`]
+                styles.banner1
               }`}
             >
               <img
@@ -73,8 +74,8 @@ const MovieSlider = ({ slides, bannerContent, onSlideChange }) => {
               />
               <div className={styles.bannerContent}>
                 <h2>{bannerContent.title}</h2>
-                <p>{bannerContent.text}</p>
-                <p>{bannerContent.content}</p>
+                <p className={styles.span}>{bannerContent.text}</p>
+                <p className={styles.content}>{bannerContent.content}</p>
                 <a href={bannerContent.buttonLink}>
                   {bannerContent.buttonLabel}
                 </a>
